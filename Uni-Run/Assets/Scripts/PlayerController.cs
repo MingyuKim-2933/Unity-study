@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 // PlayerController는 플레이어 캐릭터로서 Player 게임 오브젝트를 제어한다.
 public class PlayerController : MonoBehaviour {
@@ -69,6 +69,9 @@ public class PlayerController : MonoBehaviour {
        playerRigidbody.velocity = Vector2.zero;
        // 사망 상태를 true로 변경
        isDead = true;
+
+       // 게임 매니저의 게임오버 처리 실행
+       GameManager.instance.OnPlayerDead();
    }
                                                                                       
    private void OnTriggerEnter2D(Collider2D other) {

@@ -34,15 +34,27 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
         // 게임 오버 상태에서 게임을 재시작할 수 있게 하는 처리
+        if (isGameover && Input.GetMouseButtonDown(0))
+        {
+        // 게임 오버 상태에서 마우스 왼쪽 버튼을 클릭하면 현재 씬 재시작
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     // 점수를 증가시키는 메서드
     public void AddScore(int newScore) {
-        
+        // 게임 오버가 아니라면
+        if(!isGameover)
+        {
+            // 점수를 증가
+            score += newScore;
+            scoreText.text = "Score :" + score;
+        }
     }
 
     // 플레이어 캐릭터가 사망시 게임 오버를 실행하는 메서드
     public void OnPlayerDead() {
-        
+        isGameover = true;
+        gameoverUI.SetActive(true);
     }
 }
