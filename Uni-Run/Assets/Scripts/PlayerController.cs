@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour {
        // 사망 효과음 재생
        playerAudio.Play();
 
-       // 속도를 제로(0, 0)로 변경
+       // 속도를 제로(0, 0)로 변경 
        playerRigidbody.velocity = Vector2.zero;
        // 사망 상태를 true로 변경
        isDead = true;
